@@ -5,4 +5,7 @@ postModule.config(['$routeProvider', function($routeProvider) {
     	templateUrl: 'partials/post-list.html',
     	controller: PostListController
     });
+//    .otherwise({
+//		redirectTo : '/index.html'
+//	});
 }]);

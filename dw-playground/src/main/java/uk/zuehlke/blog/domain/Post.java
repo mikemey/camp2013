@@ -12,8 +12,8 @@ public class Post {
 	private String title;
 	private String content;
 
-	public ObjectId getId() {
-		return id;
+	public String getId() {
+		return id.toString();
 	}
 
 	public void setId(ObjectId id) {

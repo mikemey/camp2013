@@ -16,7 +16,17 @@
 <script src="js/postapp.js" type="text/javascript"></script>
 <script src="js/controller.js" type="text/javascript"></script>
 </head>
-<body ng-controller="PostListController">
-	<div class="container" ng-view></div>
+<body>
+	<div class="navbar">
+	  <div class="navbar-inner">
+	    <a class="brand" href="#">YABS Aaaaaaaaaaaaah</a>
+	    <ul class="nav">
+	      <li class="active"><a href="index.html">Home</a></li>
+	      <li><a href="#">Create Post</a></li>
+	    </ul>
+	  </div>
+	</div>
+
+	<div class="container" ng-controller="PostListController" ng-view></div>
 </body>
 </html>
