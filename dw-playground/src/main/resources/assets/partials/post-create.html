@@ -1,0 +1,27 @@
+
+<div class="row-fluid">		
+	<div class="span10 offset1">		
+		<form id="postDetailForm" class="form-horizontal">
+		  <input type="hidden" data-ng-model="post.id"/>
+		  <div class="control-group">
+		    <label class="control-label" for="inputTitle">Title</label>
+		    <div class="controls">
+		      <input type="text" id="inputTitle" data-ng-model="post.title">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="inputContent">Content</label>
+		    <div class="controls">
+		      <input type="text" id="inputContent" data-ng-model="post.content">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <div class="controls">
+		      <button type="button" class="btn btn-success" data-ng-click="save(post)">Save</button>
+		      <button type="button" class="btn btn-danger" data-ng-click="remove(post.id)" data-ng-show="post.id">Delete</button>
+		      <button type="button" class="btn" data-ng-click="cancel()">Cancel</button>
+		    </div>
+		  </div>  
+		</form>		
+	</div>
+</div>

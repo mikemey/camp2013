@@ -1,6 +1,8 @@
 package uk.zuehlke.blog;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -27,4 +29,13 @@ public class PostResource {
 		LOGGER.info("Query all posts.");
 		return postRepository.findAll();
 	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+//	@Path("create")
+	public void createPost(Post newPost) {
+		LOGGER.info(String.format("Creating post with title %s.", newPost.getTitle()));
+		postRepository.save(newPost);
+	}
+	
 }
