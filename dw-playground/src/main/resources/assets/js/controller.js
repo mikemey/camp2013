@@ -1,8 +1,23 @@
-function PostListController($http, $scope) {
+function PostListController($http, $scope, postService) {
 	$http.get('/service/posts')
 		.success(function(data) {
 			$scope.posts = data;
 	});
+	
+	
+	$scope.posts = postService.query();
+	$scope.query = '';
+
+	$scope.search = function(query) {
+		$scope.posts = postService.query({
+			q : query
+		});
+	};
+	
+	$scope.$watch('query', function() {
+		$scope.search($scope.query);
+	});
+	
 }
 
 function PostDeleteController($scope, $location, $routeParams, postService) {

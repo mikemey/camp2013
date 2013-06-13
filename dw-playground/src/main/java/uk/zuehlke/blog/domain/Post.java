@@ -1,6 +1,10 @@
 package uk.zuehlke.blog.domain;
 
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -47,7 +51,15 @@ public class Post {
 		this.tags = tags;
 	}
 	
-	public Date getCreatedDate() {
+	public List<String> getListOfTags(){
+		return tags != null ? Arrays.asList(tags.split(" ")) : Collections.<String>emptyList();		
+	}
+	
+	public String getCreatedDateAsString() {
+		return (new SimpleDateFormat("dd/MM/yyyy HH:mm:ss")).format(createdDate);
+	}
+	
+	public Date getCreatedDate(){
 		return createdDate;
 	}
 	

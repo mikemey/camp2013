@@ -18,7 +18,7 @@ public class PostResourceTest {
 
 	@Test
 	public void testGetAllPosts() {
-		Iterable<Post> allPosts = postResource.getAllPosts();
+		Iterable<Post> allPosts = postResource.getAllPosts("");
 		for (Post post : allPosts) {
 			System.out.println(post);
 		}
