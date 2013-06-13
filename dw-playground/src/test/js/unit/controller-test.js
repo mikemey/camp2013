@@ -75,11 +75,11 @@ describe("Controller Tests", function() {
 		}));
 
 		it ('editing existing post', inject(function($location) {
-			spyOn($location, 'path');
+			spyOn($location, 'path'); 
 			
-//			var editingPost = posts.get(0);
-			$httpBackend.expectGET('/service/posts/1').respond({ posts[0] });
-			$httpBackend.expectPOST('/service/posts/1').respond({});
+			var editingPost = posts[0];
+			$httpBackend.expectGET('service/posts/1').respond(editingPost);
+			$httpBackend.expectPOST('service/posts').respond({});
 			
 			$controller(PostCreateController, { 
 				$scope: $scope, 
