@@ -8,6 +8,10 @@ postModule.config(['$routeProvider', function($routeProvider) {
     .when('/posts/create',{
     	templateUrl: 'partials/post-create.html',
     	controller: PostCreateController
+    })
+    .when('/posts/create/:postId',{
+    	templateUrl: 'partials/post-create.html',
+    	controller: PostCreateController
     });
 //    .otherwise({
 //		redirectTo : '/index.html'

@@ -5,16 +5,18 @@ function PostListController($http, $scope) {
 	});
 }
 
-function PostCreateController($http, $scope, $location, postService){
+function PostCreateController($http, $scope, $location, $routeParams, postService){
+	var id = $routeParams.postId;
+	if (!_.isUndefined(id)){
+		$scope.post = postService.get({
+			postId : id
+		});
+	}
+	
 	$scope.save = function(post) {
 		postService.save(post, function() {
 			$location.path('/');
 		});
 	};
-//	var id = $routeParams.postId;
-//	if (!_.isUndefined(id))
-//		$scope.post = postService.get({
-//			postId : id
-//		});
 
 }

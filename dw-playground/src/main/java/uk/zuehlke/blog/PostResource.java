@@ -4,8 +4,11 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,9 +33,15 @@ public class PostResource {
 		return postRepository.findAll();
 	}
 	
+	@GET @Path("/{postId}")
+	public Post getPost(@PathParam("postId") String id) {
+		Post post = postRepository.findOne(id);
+		if (post != null) return post;
+		throw new WebApplicationException(Response.Status.NOT_FOUND);
+	}
+	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-//	@Path("create")
 	public void createPost(Post newPost) {
 		LOGGER.info(String.format("Creating post with title %s.", newPost.getTitle()));
 		postRepository.save(newPost);

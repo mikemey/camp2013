@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
 
 import uk.zuehlke.blog.domain.Post;
 
@@ -22,5 +23,15 @@ public class PostResourceTest {
 			System.out.println(post);
 		}
 	}
+	
+	@Test
+	public void testGetPostById(){
+		Post post = postResource.getPost("51b7514e701070c69930b6fd");
+		System.out.println(post.toString());
+		
+		Assert.notNull(post);
+	}
+	
+	
 
 }
