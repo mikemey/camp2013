@@ -5,7 +5,7 @@ function PostListController($http, $scope) {
 	});
 }
 
-function PostCreateController($http, $scope, $location, $routeParams, postService){
+function PostCreateController($scope, $location, $routeParams, postService){
 	var id = $routeParams.postId;
 	if (!_.isUndefined(id)){
 		$scope.post = postService.get({
