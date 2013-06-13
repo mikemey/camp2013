@@ -1,6 +1,7 @@
 package uk.zuehlke.blog;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -46,6 +47,13 @@ public class PostResource {
 	public void createPost(Post newPost) {
 		LOGGER.info(String.format("Creating post with title %s.", newPost.getTitle()));
 		postRepository.save(newPost);
+	}
+	
+	@DELETE
+	@Path("/{postId}")
+	public void deletePost(@PathParam("postId") String postToDelete) {
+		LOGGER.info(String.format("Deleting post with id %s.", postToDelete));
+		postRepository.delete(postToDelete);
 	}
 	
 }

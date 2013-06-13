@@ -5,6 +5,17 @@ function PostListController($http, $scope) {
 	});
 }
 
+function PostDeleteController($scope, $location, $routeParams, postService) {
+	var id = $routeParams.postId;
+	if (!_.isUndefined(id)){
+		postService.delete({
+			postId : id
+		}, function() {
+			$location.path('/');
+		});
+	}
+}
+
 function PostCreateController($scope, $location, $routeParams, postService){
 	var id = $routeParams.postId;
 	if (!_.isUndefined(id)){

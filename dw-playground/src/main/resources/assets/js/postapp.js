@@ -12,6 +12,10 @@ postModule.config(['$routeProvider', function($routeProvider) {
     .when('/posts/create/:postId',{
     	templateUrl: 'partials/post-create.html',
     	controller: PostCreateController
+    })
+    .when('/posts/delete/:postId',{
+    	templateUrl: 'partials/post-list.html',
+    	controller: PostDeleteController
     });
 //    .otherwise({
 //		redirectTo : '/index.html'
