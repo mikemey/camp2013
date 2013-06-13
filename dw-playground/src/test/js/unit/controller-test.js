@@ -3,11 +3,13 @@ describe("Controller Tests", function() {
 	var posts = [ {
 		id : 1,
 		title : "First post",
-		content : "Content of first post"
+		content : "Content of first post",
+		tags: "tag1 tag2 tag3"
 	}, {
 		id : 2,
 		title : "Second post",
-		content : "Content of second post"
+		content : "Content of second post",
+		tags: "tag3 tag4 tag5"
 	} ];
 	
 	var $scope = null;
@@ -64,8 +66,9 @@ describe("Controller Tests", function() {
 			});
 
 			$scope.save({
-				title : "Title",
-				content : "Content",
+				title : posts[0].title,
+				content : posts[0].content,
+				tags: posts[0].tags
 			});
 			
 			$httpBackend.flush();
@@ -89,6 +92,7 @@ describe("Controller Tests", function() {
 			$scope.save({
 				title : 'edited',
 				content : 'edited',
+				tags: 'edited'
 			});
 			
 			$httpBackend.flush();

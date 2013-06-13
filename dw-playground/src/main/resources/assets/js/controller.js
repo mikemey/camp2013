@@ -18,5 +18,9 @@ function PostCreateController($scope, $location, $routeParams, postService){
 			$location.path('/');
 		});
 	};
+	
+	$scope.cancel = function(){
+		$location.path('/');
+	};
 
 }

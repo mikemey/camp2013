@@ -1,4 +1,4 @@
-var postModule = angular.module('library', ['library.services']);
+var postModule = angular.module('library', ['library.services', 'library.directives']);
 
 postModule.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/',{ 

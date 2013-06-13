@@ -1,9 +1,10 @@
 package uk.zuehlke.blog;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import uk.zuehlke.blog.domain.Post;
 
-public interface PostRepository extends CrudRepository<Post, String>{
+public interface PostRepository extends PagingAndSortingRepository<Post, String>{
 
+	
 }
