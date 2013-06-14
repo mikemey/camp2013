@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "posts")
@@ -19,6 +20,10 @@ public class Post {
 	private String content;
 	private String tags;
 	private Date createdDate = new Date();
+	@Transient
+	private List<String> listOfTags;
+	@Transient
+	private String createdDateAsString;
 
 	public String getId() {
 		return id.toString();

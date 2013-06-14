@@ -8,7 +8,7 @@ import uk.zuehlke.blog.domain.Post;
 
 public interface PostRepository extends PagingAndSortingRepository<Post, String>{
 
-	@Query("{$or: [{content: {$regex:?0}}, {tags: {$regex:?0}}, {title: {$regex:?0}}]}")
+	@Query("{$or: [{content: {$regex:?0,$options:'i'}}, {tags: {$regex:?0, $options:'i'}}, {title: {$regex:?0,$options:'i'}}]}")
 	Iterable<Post> findPostsByQuery(String query, Sort sort);
 	
 }
