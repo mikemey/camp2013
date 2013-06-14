@@ -37,14 +37,13 @@ describe("Controller Tests", function() {
 	describe("PostListController", function(){
 		
 		it ('shows all posts', function() {
-			$httpBackend.expectGET('/service/posts').respond( posts );
-
+			$httpBackend.expectGET('service/posts?q=').respond( posts );
 			$controller(PostListController, {
 				$scope : $scope
-			});
-
+				
+			});	
 			expect($scope.posts).not.toBeDefined();
-
+			$scope.$apply();
 			$httpBackend.flush();
 
 			expect($scope.posts).toEqualData( posts );
