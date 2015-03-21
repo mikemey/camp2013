@@ -21,7 +21,7 @@ A payment can have the following states:
 
 | Path                                        | Supported Methods | Description                                                |
 | ------------------------------------------- | ------------------| ---------------------------------------------------------- |
-|```**[/payments](#get-payments)**```         |        GET       |  Returns a list of all transactions         |
+|**[/payments](#get-payments)**         |        GET       |  Returns a list of all transactions         |
 |```/payments```                              |        POST       | Initiates the payment request                              |
 |```/payments```                              |        GET       | Get a list of payments                              |
 |```/payments/{transactionId}/card```         |        POST       | Makes payment with card                                    |
