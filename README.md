@@ -31,7 +31,7 @@ A payment can have the following states:
 ## Installation Instructions
 
 
-### GET payments
+### GET /payments
 
 This endpoint returns a list of all transactions (i.e. payments with their latest state).
 
